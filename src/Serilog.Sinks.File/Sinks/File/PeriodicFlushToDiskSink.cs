@@ -47,7 +47,12 @@ namespace Serilog.Sinks.File
             }
             else
             {
-                _timer = new Timer(_ => { }, null, Timeout.InfiniteTimeSpan, Timeout.InfiniteTimeSpan);
+                _timer = new Timer(_ => { }, null,
+#if !NET40 && !NET35
+                    Timeout.InfiniteTimeSpan, Timeout.InfiniteTimeSpan);
+#else
+                    new TimeSpan(0, 0, 0, 0, -1), new TimeSpan(0, 0, 0, 0, -1));
+#endif
                 SelfLog.WriteLine("{0} configured to flush {1}, but {2} not implemented", typeof(PeriodicFlushToDiskSink), sink, nameof(IFlushableFileSink));
             }
         }

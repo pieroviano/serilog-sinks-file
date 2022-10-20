@@ -66,7 +66,11 @@ namespace Serilog.Sinks.File
             _fileSizeLimitBytes = fileSizeLimitBytes;
 
             var directory = Path.GetDirectoryName(path);
+#if NET35
+            if (!LogEventProperty.IsNullOrWhiteSpace(directory) && !Directory.Exists(directory))
+#else
             if (!string.IsNullOrWhiteSpace(directory) && !Directory.Exists(directory))
+#endif
             {
                 Directory.CreateDirectory(directory);
             }
@@ -123,7 +127,11 @@ namespace Serilog.Sinks.File
             lock (_syncRoot)
             {
                 _output.Dispose();
+#if !NET35
                 _mutex.Dispose();
+#else
+                _mutex.Close();
+#endif
             }
         }
 
@@ -137,7 +145,11 @@ namespace Serilog.Sinks.File
 
                 try
                 {
+#if NET35
+                    _underlyingStream.Flush();
+#else
                     _underlyingStream.Flush(true);
+#endif
                 }
                 finally
                 {

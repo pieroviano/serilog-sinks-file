@@ -75,7 +75,11 @@ namespace Serilog.Sinks.File
             _buffered = buffered;
 
             var directory = Path.GetDirectoryName(path);
+#if NET35
+            if (!LogEventProperty.IsNullOrWhiteSpace(directory) && !Directory.Exists(directory))
+#else
             if (!string.IsNullOrWhiteSpace(directory) && !Directory.Exists(directory))
+#endif
             {
                 Directory.CreateDirectory(directory);
             }
@@ -144,7 +148,11 @@ namespace Serilog.Sinks.File
             lock (_syncRoot)
             {
                 _output.Flush();
+#if NET35
+                _underlyingStream.Flush();
+#else
                 _underlyingStream.Flush(true);
+#endif
             }
         }
     }
