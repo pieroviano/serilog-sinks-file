@@ -48,8 +48,7 @@
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net35' ">
-    <PackageReference Include="XmpCore" Version="6.1.10.1" />
-    <PackageReference Include="System.Threading.Tasks" Version="3.0.1">
+    <PackageReference Include="Net35.System.Threading.Tasks.Signed" Version="3.0.1">
       <Aliases>TasksNet35</Aliases>
     </PackageReference>
   </ItemGroup>
