@@ -27,7 +27,7 @@
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Version>$(VersionPrefix)</Version>
-    <PackageId>$(AssemblyName)</PackageId>
+    <PackageId>Net4x.$(MSBuildProjectName)</PackageId>
     <AssemblyName>Net4x.$(MSBuildProjectName)</AssemblyName>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
