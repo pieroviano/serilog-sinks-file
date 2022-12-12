@@ -27,7 +27,7 @@
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Version>$(VersionPrefix)</Version>
-    <PackageId>$(AssemblyName).PieroViano</PackageId>
+    <PackageId>Net4X.$(AssemblyName).PieroViano</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
