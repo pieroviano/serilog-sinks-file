@@ -29,7 +29,7 @@
     <EnableSourceLink Condition="'$(EnableSourceLink)' == ''">false</EnableSourceLink>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-    <Version>$(VersionPrefix)</Version>
+    <Version>$(VersionPrefix)$(Suffix)</Version>
     <PackageId>Net4x.$(MSBuildProjectName)</PackageId>
     <AssemblyName>Net4x.$(MSBuildProjectName)</AssemblyName>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
