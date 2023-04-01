@@ -54,7 +54,7 @@
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net35' ">
-    <PackageReference Include="Net35.Threading.Tasks" Version="$(Net35ThredingTasksVersion)$(VersionBuildSuffix)">
+    <PackageReference Include="Net35.Threading.Tasks" Version="$(Net35ThredingTasksVersion).$(VersionBuildSuffix)">
     </PackageReference>
   </ItemGroup>
 </Project>
