@@ -1,10 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
+  <PropertyGroup>
+    <PackageOutputPath>$(SolutionDir)Packages/</PackageOutputPath>
+  </PropertyGroup>
+  <Import Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props')" />
+  <Import Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets')" />
+  <ItemGroup>
+    <PackageReference Include="NuGetUtility" Version="$(NuGetUtilityVersion)" PrivateAssets="All" />
+  </ItemGroup>
   <PropertyGroup>
     <Description>Write Serilog events to text files in plain or JSON format.</Description>
-    <CurrentDateTime Condition="'$(CurrentDateTime)'==''">$([System.DateTime]::Now.ToString("yyyyMMddhhmmss"))</CurrentDateTime>
-    <Suffix Condition="'$(Suffix)'==''">-at$(CurrentDateTime)</Suffix>
-    <VersionPrefix>5.0.1</VersionPrefix>
+    <SerilogSinksFileVersion Condition="'$(SerilogSinksFileVersion)' == ''">5.0.1</SerilogSinksFileVersion>
     <Authors>Serilog Contributors</Authors>
     <TargetFrameworks>net35;net40;net45;netstandard1.3;netstandard2.0;netstandard2.1;net5.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -31,7 +36,7 @@
     <EnableSourceLink Condition="'$(EnableSourceLink)' == ''">false</EnableSourceLink>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-    <Version>$(VersionPrefix)$(Suffix)</Version>
+    <Version>$(SerilogSinksFileVersion)$(Suffix)</Version>
     <PackageId>Net4x.$(MSBuildProjectName)</PackageId>
     <AssemblyName>Net4x.$(MSBuildProjectName)</AssemblyName>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
