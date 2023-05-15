@@ -40,7 +40,7 @@
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     <SerilogSinksFileVersion Condition="'$(SerilogSinksFileVersion)' == ''">5.0.1</SerilogSinksFileVersion>
-    <Version>$(SerilogSinksFileVersion)$(Suffix)</Version>
+        <Version>$(VersionPrefix).$(VersionSuffix)</Version>
     <PackageId>Net4x.$(MSBuildProjectName)</PackageId>
     <AssemblyName>Net4x.$(MSBuildProjectName)</AssemblyName>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>

@@ -1,0 +1,8 @@
+<Project>
+  <Import Project="Directory.NuGet.props" Condition="'$(DirectoryNuGet)'==''" />
+  <PropertyGroup>
+    <VersionPrefix>$(serilog-sinks-fileVersion)</VersionPrefix>
+    <VersionSuffix Condition="'$(Configuration)'!='Release'">0-at20230515042527</VersionSuffix>
+    <VersionSuffix Condition="'$(Configuration)'=='Release'">0</VersionSuffix>
+  </PropertyGroup>
+</Project>
