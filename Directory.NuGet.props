@@ -57,7 +57,7 @@
     <FatturaElettronicaVersion>3.2.1</FatturaElettronicaVersion>
     <FluentAssertionsVersion>6.12.2</FluentAssertionsVersion>
     <FluentValidation9Version>9.2.2</FluentValidation9Version>
-    <FluentValidationVersion>11.5.2</FluentValidationVersion>
+    <FluentValidationVersion>9.2.2</FluentValidationVersion>
     <FormLoggingVersion>1.4.0</FormLoggingVersion>
     <FreeImageDotnetCoreVersion>4.5.0</FreeImageDotnetCoreVersion>
     <GtkSharpVersion>3.24.24</GtkSharpVersion>
@@ -111,6 +111,8 @@
     <Net4xEntityFrameworkLibVersion>1.2.0</Net4xEntityFrameworkLibVersion>
     <Net4xEntityFrameworkVersion>6.4.4</Net4xEntityFrameworkVersion>
     <Net4xExtensionsVersion>2.5.0</Net4xExtensionsVersion>
+    <Net4xIoCompressionVersion>1.0.0</Net4xIoCompressionVersion>
+    <Net4xIOCompressionVersion>1.0.0</Net4xIOCompressionVersion>
     <Net4xiTextSharpVersion>5.5.14</Net4xiTextSharpVersion>
     <Net4xiTextVersion>1.1.0</Net4xiTextVersion>
     <Net4xMSHTMLVersion>1.2.0</Net4xMSHTMLVersion>
