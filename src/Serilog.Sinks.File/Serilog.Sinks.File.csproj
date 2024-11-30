@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-16"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <DontUnlock>true</DontUnlock>
@@ -6,11 +6,11 @@
         <DontFileUpdate>true</DontFileUpdate>
         <PackageOutputPath>$(SolutionDir)Packages/</PackageOutputPath>
     </PropertyGroup>
-    <Import Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\Directory.NuGet.props" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\Directory.NuGet.props')" />
-    <Import Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props')" />
-    <Import Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets')" />
+    <Import Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\Directory.NuGet.props')" Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\Directory.NuGet.props" />
+    <Import Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props')" Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props" />
+    <Import Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets')" Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets" />
     <ItemGroup>
-        <PackageReference Include="NuGetUtility" Version="$(NuGetUtilityVersion)" PrivateAssets="All" />
+        <PackageReference Include="NuGetUtility" PrivateAssets="All" Version="$(NuGetUtilityVersion)" />
     </ItemGroup>
     <PropertyGroup>
         <Description>Write Serilog events to text files in plain or JSON format.</Description>
@@ -48,9 +48,9 @@
         <PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+        <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" Version="1.0.0" />
         <PackageReference Include="Net4X.Serilog" Version="2.12.1.*-*" />
-        <PackageReference Include="Nullable" Version="1.3.0" PrivateAssets="All" />
+        <PackageReference Include="Nullable" PrivateAssets="All" Version="1.3.0" />
     </ItemGroup>
     <PropertyGroup Condition=" '$(TargetFramework)' == 'net45' or '$(TargetFramework)' == 'net40' ">
         <DefineConstants>$(DefineConstants);ATOMIC_APPEND;HRESULTS</DefineConstants>
@@ -59,9 +59,9 @@
         <DefineConstants>$(DefineConstants);OS_MUTEX</DefineConstants>
     </PropertyGroup>
     <ItemGroup>
-        <None Include="..\..\assets\serilog-sink-nuget.png" Pack="true" Visible="false" PackagePath="images\icon.png" />
+        <None Include="..\..\assets\serilog-sink-nuget.png" Pack="true" PackagePath="images\icon.png" Visible="false" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Net35.Threading.Tasks" Version="$(Net35ThredingTasksVersion).$(VersionBuildSuffix)" Condition=" '$(TargetFramework)' == 'net35' "></PackageReference>
+        <PackageReference Include="Net35.Threading.Tasks" Condition=" '$(TargetFramework)' == 'net35' " Version="$(Net35ThredingTasksVersion).$(VersionBuildSuffix)"></PackageReference>
     </ItemGroup>
 </Project>
